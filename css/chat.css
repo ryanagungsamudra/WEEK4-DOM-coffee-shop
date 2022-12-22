@@ -1,0 +1,165 @@
+.check {
+    border: 3px solid black;
+    height: 140vh;
+}
+/* Navbar Start*/
+body {
+    font-family: 'Poppins';
+    overflow-x: hidden;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 20px;
+    color: #0B132A;
+}
+
+.nav-link.active {
+    font-weight: 700;
+    font-size: 16px;
+    color: #6A4029;
+}
+
+.nav-link {
+    font-weight: 400;
+    font-size: 16px;
+    color: #4F5665;
+}
+
+.nav-link:hover {
+    border-bottom: 1px solid #6A4029;
+}
+
+/* Chat Notif */
+.start-100 {
+    left: 91.5% !important
+}
+
+.top-0 {
+    top: 19% !important
+}
+
+.badge {
+    border-radius: 360px;
+    height: 20px;
+    width: 20px;
+    border-top-color: #6A4029;
+}
+
+.bg-danger {
+    color: white;
+    padding-left: 6.5px;
+}
+
+/* Navbar End */
+
+/* Main Start */
+.hero {
+    background-image: url(../img/chat&roomchat/hero.jpg);
+    background-size: cover;
+    background-position-x: center;
+    height: 165vh;
+    width: 100vw;
+}
+.avatar-1 {
+    margin-top: 0.7rem;
+}
+.avatar-2 {
+    margin-top: 0.4rem;
+}
+.avatar-3 {
+    margin-top: 0.5rem;
+}
+.container-1 {
+    border-radius: 20px;
+}
+.container-2 {
+    height: 140vh;
+    background-color: #6A4029;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.container-3 {
+    height: 140vh;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.form-control {
+    background-color: #EFEEEE;
+    border-radius: 20px;
+    height: 3rem;
+}
+a {
+    text-decoration: none;
+}
+a .chat-section {
+    color: #FFFFFF;
+    margin-top: 2rem;
+}
+.chat-section:hover {
+    transform: scale(1.05);
+    transition-delay: 100ms;
+    transition-duration: 0.5s;
+}
+.line-break-side {
+    border: 1px solid #FFFFFF;
+    margin-top: -0.1rem;
+}
+/* Main End */
+
+/* Styling start */
+.s-1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    color: #FFFFFF;
+
+    margin-left: 2rem; margin-top: 2rem;
+}
+.s-2 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: #FFFFFF;
+
+    margin-top: -1rem; margin-left: 0.6rem;
+}
+.s-3 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+    color: #FFFFFF;
+
+    margin-top: -0.3rem; margin-left: 0.6rem;
+}
+.s-4 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+    color: #4F5665;
+}
+
+/* Styling end */
+
+/* Footer Start */
+.pt-footer {
+    margin-top: 110px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #4F5665;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Footer End */

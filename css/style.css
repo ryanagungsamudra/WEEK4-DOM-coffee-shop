@@ -1,0 +1,237 @@
+@media screen and (max-width : 576px) {
+    body {
+        overflow-x: hidden;
+    }
+    .hero-1 {
+        background-position-x: -48rem;
+    }
+}
+
+/* Navbar */
+body {
+    font-family: 'Rubik', sans-serif;
+    overflow-x: hidden;
+    
+}
+.navbar-brand {
+    font-weight:700;
+    font-size: 20px; 
+    color: #0B132A;
+}
+.nav-link.active {
+    font-weight: 700;
+    font-size: 16px;
+    color: #6A4029;
+}
+.nav-link {
+    font-weight: 400;
+    font-size: 16px;
+    color: #4F5665;
+}
+.nav-link:hover {
+    border-bottom: 1px solid #6A4029;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.btn.btn-warning.get-started {
+    width: 250px;
+    height: 60px;
+}
+.btn.btn-warning.sign-up {
+    width: 150px;
+    height: 45px;
+    background-color: #FFBA33;
+    border-radius: 50px;
+}
+.btn.btn-warning:hover {
+    background-color: #6A4029;
+    border-color: #6A4029;
+    color: #FFFFFF;
+}
+
+/* SECTION 1 */
+.hero-1 {
+    background-image: url(../img/homepage/hero-1.png);
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+.typo-1-s1 {
+    font-weight: 700;
+    font-size: 50px;
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+.typo-2-s1 {
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+.typo-3-s1 {
+    font-weight: 700;
+    font-size: 16px;
+    color: #6A4029;
+}
+/* info panel */
+.info-panel {
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    margin-top: -100px;
+    background-color: #FFFFFF;
+    height: 200px;
+    padding-top: 65px;
+    padding-left: 135px;
+}
+.info-panel img {
+    margin-right: 15px;
+    margin-top: 5px;
+}
+.info-panel h4 {
+    font-weight: 700;
+    font-size: 25px;
+    color: #0B132A;
+}
+.info-panel p {
+    font-weight: 400;
+    font-size: 20px;
+    color: #4F5665;
+}
+.vertical-line {
+    border-left: 3px solid #EEEFF2;
+    height: 125px;
+    margin-top: -113px;
+    margin-left: -100px;
+}
+
+/* SECTION 2 */
+.hero-2 {
+    background-image: url(../img/homepage/hero-2.png);
+    background-size: cover;
+    height: 457px;
+    width: 573px;
+}
+.typo-primary {
+    font-weight: 500;
+    font-size: 35px;
+    color: #0B132A;
+}
+.typo-secondary {
+    font-weight: 400;
+    font-size: 16px;
+    color: #4F5665;
+}
+.typo-3-s2 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #4F5665;
+}
+
+/* SECTION 3 */
+.section-3 {
+    margin-top: 100px;
+}
+.mt-card {
+    margin-top: 220px;
+}
+
+/* SECTION 4 */
+.section-4 {
+    margin-top: 100px;
+}
+.hero-map {
+    margin-top: 50px;
+    background-image: url(../img/homepage/hero-map.svg);
+    background-size: cover;
+    height: 537px;
+    max-width: 1060px;
+}
+
+/* SECTION 5 */
+.section-5 {
+    margin-top: 100px;
+}
+.sponsored {
+    background-image: url(../img/homepage/sponsored.svg);
+    background-size: cover;
+    height: 208px;
+    width: 1135px;
+}
+
+/* CAROUSEL SLIDING START*/
+.testimonials {
+    max-width: 1000px;
+    padding: 0 15px 50px;
+    margin: 0 auto 80px auto;
+}
+.single-item {
+    background: #fff;
+    color: #111;
+    padding: 15px;
+    margin: 50px 15px;
+}
+.profile {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.img-area {
+    margin: 0 15px 15px 15px;
+}
+.img-area img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 7px solid #6A4029;
+    opacity: 105%;
+}
+.content {
+    font-size: 18px;
+}
+.content p {
+    text-align: justify;
+}
+.content p span {
+    font-size: 48px;
+    margin-right: 20px;
+    color:#FFBA33;
+    opacity: 75%;
+}
+.socials i {
+    margin-right: 25px;
+}
+.bio h4 {
+    font-family: 'Berkshire Swash', cursive;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background-color:#FFBA33;
+}
+/* CAROUSEL SLIDING END */
+
+/* info panel footer */
+.info-panel-footer {
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    height: 200px;
+    margin-top: -630px;
+    padding-top: 35px;
+    padding-left: 35px;
+}
+.info-panel-footer button {
+    margin-left: 300px;
+    margin-top: 35px;
+}
+.pt-footer {
+    margin-top: 220px;
+}
+footer a {
+    text-decoration: none;
+    color: #4F5665;
+    font-size: 16px;
+    font-weight: 400;
+}
