@@ -61,36 +61,40 @@
                             <h3>Login</h3>
                         </div>
                     </div>
-                    <form>
+
+                    <!-- FORM START -->
+                    <form name="loginForm">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label s-md" style="font-size: 20px; color: #4F5665;">Email Address :</label>
-                            <input type="email" class="form-control py-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email adress">
+                            <input type="email" class="form-control py-3" id="emailLogin" aria-describedby="emailHelp" placeholder="Enter your email adress">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label s-md" style="font-size: 20px; color: #4F5665;">Password :</label>
-                            <input type="password" class="form-control py-3" id="exampleInputPassword1" placeholder="Enter your password">
+                            <input type="password" class="form-control py-3" id="passwordLogin" placeholder="Enter your password">
                         </div>
                         <div class="mb-3 form-check">
                         </div>
-                    </form>
-                    <div class="row">
-                        <div class="col">
-                            <a href="forgotpassword.html" class="s-lg" style="font-size: 20px; color: #6A4029;"><p style="margin-top: -45px;">Forgot password?</p></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mt-5">
-                            <div class="btn btn-warning d-flex rounded-4 s-lg py-4" style="font-size: 20px;"><span style="margin: auto;">Login</span></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mt-4">
-                            <div class="btn btn-light d-flex rounded-4">
-                                <img src="img/login/googleLogo.svg" alt="google" style="margin-left: 120px;">
-                                <p class="s-1" style="margin-top: 19px; margin-left: 10px;">Login with Google</p> 
+                        <div class="row">
+                            <div class="col">
+                                <a href="forgotpassword.html" class="s-lg" style="font-size: 20px; color: #6A4029;"><p style="margin-top: -45px;">Forgot password?</p></a>
                             </div>
                         </div>
-                    </div>
+
+                        <input type="submit" value="Login" class="btn btn-warning rounded-4 s-lg py-4 input-login" style="font-size: 20px;">
+                        
+                        <div class="row">
+                            <div class="col mt-4">
+                                <a href="#">
+                                    <div class="btn btn-light d-flex rounded-4">
+                                        <img src="img/login/googleLogo.svg" alt="google" style="margin-left: 120px;">
+                                        <p class="s-1" style="margin-top: 19px; margin-left: 10px;">Login with Google</p> 
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- FORM END -->
+
                 </div>
 
             </div>
@@ -146,6 +150,9 @@
                         <a href="#">
                             <p>Blog</p>
                         </a>
+                        <a href="userdata.html">
+                            <p>User Data</p>
+                        </a>
                     </div>
                     <div class="col-2 pt-footer">
                         <h5 class="mb-4">Engage</h5>
@@ -194,6 +201,21 @@
         <!-- info panel footer end -->
 
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script>
+    // LOGIN FORM
+        //Collecting form data
+        document.querySelector("form[name=loginForm]").onsubmit = function (event) {
+            event.preventDefault()
+
+            let emailLogin = document.getElementById("emailLogin").value
+            let passwordLogin = document.getElementById("passwordLogin").value
+
+            console.log(emailLogin)
+            console.log(passwordLogin)
+
+            document.querySelector("form[name=loginForm]").reset()
+        }
+    </script>
 </body>
 
 </html>

@@ -64,40 +64,39 @@
                             <h3>Sign Up</h3>
                         </div>
                     </div>
-                    <form>
+
+                    <!-- FORM START -->
+                    <form name="signUpForm">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label s-md"
                                 style="font-size: 20px; color: #4F5665;">Email Address :</label>
-                            <input type="email" class="form-control py-3" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter your email adress">
+                            <input type="email" class="form-control py-3" id="emailSignUp" aria-describedby="emailHelp" placeholder="Enter your email adress">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label s-md"
                                 style="font-size: 20px; color: #4F5665;">Password :</label>
-                            <input type="password" class="form-control py-3" id="exampleInputPassword1"
-                                placeholder="Enter your password">
+                            <input type="password" class="form-control py-3" id="passwordSignUp" placeholder="Enter your password">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label s-md" style="font-size: 20px; color: #4F5665;">Phone Number :</label>
-                            <input type="password" class="form-control py-3" id="exampleInputPassword1" placeholder="Enter your phone number">
+                            <input type="number" class="form-control py-3" id="phoneNumberSignUp" placeholder="Enter your phone number">
                         </div>
-                        <div class="mb-3 form-check">
-                        </div>
-                    </form>
-                    <div class="row">
-                        <div class="col">
-                            <div class="btn btn-warning d-flex rounded-4 s-lg py-4"
-                                style="font-size: 20px;"><span style="margin: auto;">Sign Up</span></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mt-4">
-                            <div class="btn btn-light d-flex rounded-4">
-                                <img src="img/login/googleLogo.svg" alt="google" style="margin-left: 120px;">
-                                <p class="s-1" style="margin-top: 19px; margin-left: 10px;">Sign up with Google</p>
+
+                        <div class="mb-3 form-check"></div>
+
+                        <input type="submit" value="Sign Up" class="btn btn-warning rounded-4 s-lg py-4 input-signup" style="font-size: 20px;">
+                        
+                        <div class="row">
+                            <div class="col mt-4">
+                                <a href="#"><div class="btn btn-light d-flex rounded-4">
+                                    <img src="img/login/googleLogo.svg" alt="google" style="margin-left: 120px;">
+                                    <p class="s-1" style="margin-top: 19px; margin-left: 10px;">Sign up with Google</p>
+                                </div></a>
                             </div>
                         </div>
-                    </div>
+                    </form>
+                    <!-- FORM END -->
+
                 </div>
 
             </div>
@@ -155,6 +154,9 @@
                         <a href="#">
                             <p>Blog</p>
                         </a>
+                        <a href="userdata.html">
+                            <p>User Data</p>
+                        </a>
                     </div>
                     <div class="col-2 pt-footer">
                         <h5 class="mb-4">Engage</h5>
@@ -194,7 +196,7 @@
                                     our member and enjoy the deals.</p>
                             </div>
                             <div class="col">
-                                <a href="#"><button class="btn btn-warning rounded-4  px-5 py-3 s-lg" style="font-size: 16px;">Create Now</button></a>
+                                <a href="#"><button class="btn btn-warning rounded-4 px-5 py-3 s-lg" style="font-size: 16px;">Create Now</button></a>
                             </div>
                         </div>
                     </div>
@@ -205,6 +207,23 @@
     <!-- info panel footer end -->
     
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script>
+    // SIGN UP FORM
+        // Collecting form data
+        document.querySelector("form[name=signUpForm]").onsubmit = function (event) {
+            event.preventDefault()
+
+            let emailSignUp = document.getElementById("emailSignUp").value
+            let passwordSignUp = document.getElementById("passwordSignUp").value
+            let phoneNumberSignUp = document.getElementById("phoneNumberSignUp").value
+
+            console.log(emailSignUp)
+            console.log(passwordSignUp)
+            console.log(phoneNumberSignUp)
+
+            document.querySelector("form[name=signUpForm]").reset()
+        }
+    </script>
 </body>
 
 </html>

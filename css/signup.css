@@ -1,6 +1,9 @@
 body {
     overflow-x: hidden;
 }
+a {
+    text-decoration: none;
+}
 
 /* Main Start*/
 .hero {
@@ -36,6 +39,9 @@ body {
     border: 1px solid #4F5665;
     border-radius: 20px;
 
+}
+.input-signup {
+    width: 28.75rem;
 }
 /* Main End */
 
