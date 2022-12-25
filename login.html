@@ -29,7 +29,7 @@
     <main>
         <div class="row">
             <!-- LEFT SIDE -->
-            <div class="col">
+            <div class="col d-none d-lg-block">
                 <div class="bg-primary text-white hero"></div>
             </div>
             <!-- RIGHT SIDE -->
@@ -38,7 +38,8 @@
                 <div class="row">
                     <div class="col">
                         <!-- navbar start -->
-                        <div class="container mt-5">
+                        <!-- desktop version -->
+                        <div class="container mt-5 d-none d-lg-block">
                             <nav class="navbar navbar-expand-lg my-4">
                                 <div class="container-fluid">
                                     <a class="navbar-brand" href="index.html">
@@ -48,6 +49,28 @@
                                     <a href="signup.html">
                                         <div class="btn btn-warning signup-nav rounded-pill px-4 py-2 s-md" style="font-size: 16px;"><p style="margin-top: 2px;">Sign Up</p></div>
                                     </a>
+                                </div>
+                            </nav>
+                        </div>
+                        <!-- mobile version -->
+                        <div class="container d-lg-none">
+                            <nav class="navbar navbar-expand-lg my-4">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <a class="navbar-brand" href="index.html">
+                                                <img src="img/coffeeLogo.svg" alt="logo" class="pb-2">
+                                                <p class="d-inline ps-2 s-lg" style="font-size: 20px; color: #0B132A;">YANNN COFFEE</p>
+                                            </a>
+                                        </div>
+                                        <div class="col-5">
+                                            <a href="signup.html">
+                                                <div class="btn btn-warning signup-nav rounded-pill py-2 s-md" style="font-size: 16px;">
+                                                    <p style="margin-top: 2px;">Sign Up</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </nav>
                         </div>
@@ -80,14 +103,29 @@
                             </div>
                         </div>
 
-                        <input type="submit" value="Login" class="btn btn-warning rounded-4 s-lg py-4 input-login" style="font-size: 20px;">
+                        <!-- desktop version -->
+                        <input type="submit" value="Login" class="btn btn-warning rounded-4 s-lg py-4 input-login d-lg-block d-none" style="font-size: 20px;">
+                        <!-- mobile version -->
+                        <input type="submit" value="Login" class="btn btn-warning rounded-4 s-lg py-3 d-lg-none" style="font-size: 20px; width: 70vw;">
                         
-                        <div class="row">
+                        <!-- desktop version -->
+                        <div class="row d-lg-block d-none">
                             <div class="col mt-4">
                                 <a href="#">
                                     <div class="btn btn-light d-flex rounded-4">
                                         <img src="img/login/googleLogo.svg" alt="google" style="margin-left: 120px;">
                                         <p class="s-1" style="margin-top: 19px; margin-left: 10px;">Login with Google</p> 
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- mobile version -->
+                        <div class="row d-lg-none mb-5">
+                            <div class="col mt-4">
+                                <a href="#">
+                                    <div class="btn btn-light d-flex rounded-4">
+                                        <img src="img/login/googleLogo.svg" alt="google" style="margin-left: 20px;">
+                                        <p class="s-1" style="margin-top: 19px; margin-left: 10px;">Login with Google</p>
                                     </div>
                                 </a>
                             </div>
@@ -154,7 +192,7 @@
                             <p>User Data</p>
                         </a>
                     </div>
-                    <div class="col-2 pt-footer">
+                    <div class="col-2 pt-footer d-none d-lg-block">
                         <h5 class="mb-4">Engage</h5>
                         <a href="#">
                             <p>Coffe Shop ?</p>
@@ -179,7 +217,7 @@
     <!-- Footer End -->
 
         <!-- info panel footer start -->
-        <div class="container">
+        <div class="container d-none d-lg-block">
             <div class="row info-panel-footer">
                 <div class="col">
                     <div class="container-fluid">

@@ -43,6 +43,7 @@
                             <li class="nav-item">
                                 <a class="nav-link mx-2" href="product.html">Product</a>
                             </li>
+                            <!-- <img src="img/moon.png" id="switchMode" style="width: 50px; height: 30px; margin-top: 0.3rem;"> -->
                             <li class="nav-item">
                                 <a class="nav-link mx-2" href="yourcart.html">Your Cart</a>
                             </li>
@@ -70,7 +71,7 @@
     <!-- Navbar End -->
 
     <!-- Section-1 : bg hero-1, typography, get started -->
-    <section class="section-1">
+    <section class="section-1 hidden">
         <div class="mt-4 p-5 bg-primary text-white hero-1"> <!--Jumbotron-->
             <div class="container">
                 <div class="row">
@@ -87,7 +88,7 @@
     <!-- Section-1 End -->
 
         <!-- info panel start -->
-        <div class="container d-lg-block d-none">
+        <div class="container d-lg-block d-none hidden">
             <div class="row">
                 <div class="col info-panel">
                     <div class="row">
@@ -117,7 +118,7 @@
         <!-- info panel end -->
 
     <!-- Section-2 : bg hero-2, We Provide Good Coffee.. -->
-    <section class="section-2">
+    <section class="section-2 hidden">
         <div class="container">
             <div class="row pt-5">
                 <div class="col-lg-6 d-lg-block d-none">
@@ -150,7 +151,7 @@
 
     <!-- Section-3 : Here is People’s Favorite, 3 CARD -->
     <section class="section-3">
-        <div class="container">
+        <div class="container hidden">
             <div class="row text-center">
                 <div class="col">
                     <h4 class="typo-primary">Here is People’s Favorite</h4>
@@ -160,9 +161,10 @@
         </div>
 
         <!-- 3 CARD START -->
-        <div class="container mt-card">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col text-start ms-5 ms-lg-0 my-5 my-lg-0">
+        <!-- desktop version -->
+        <div class="container mt-card d-none d-lg-block">
+            <div class="row row-cols-1 row-cols-md-3 g-4 ms-5">
+                <div class="col text-start ms-5 ms-lg-0 my-5 my-lg-0 card-transition-1 hidden">
                     <div class="card" style="height: 580px; width: 300px;">
                         <img src="img/homepage/card1.png" class="card-img-top" alt="card" style="margin-top: -90px;">
                         <div class="card-body">
@@ -190,7 +192,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col text-start ms-5 ms-lg-0 my-5 my-lg-0">
+                <div class="col text-start ms-5 ms-lg-0 my-5 my-lg-0 card-transition-2 hidden">
                     <div class="card" style="height: 580px; width: 300px;">
                         <img src="img/homepage/card2.png" class="card-img-top" alt="card" style="margin-top: -90px;">
                         <div class="card-body">
@@ -222,7 +224,108 @@
                         </div>
                     </div>
                 </div>
-                <div class="col text-start ms-5 ms-lg-0 my-5 my-lg-0">
+                <div class="col text-start ms-5 ms-lg-0 my-5 my-lg-0 card-transition-3 hidden">
+                    <div class="card" style="height: 580px; width: 300px;">
+                        <img src="img/homepage/card3.png" class="card-img-top" alt="card" style="margin-top: -90px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="margin-top: -100px; margin-left: 60px;">Chicken Wings</h5>
+                            <div class="card-text pt-5" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Wings</p>
+                            </div>
+                            <div class="card-text my-3" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Drum Sticks</p>
+                            </div>
+                            <div class="card-text" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Mayonaise and Lemon</p>
+                            </div>
+                            <div class="card-text my-3" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Hot Fried</p>
+                            </div>
+                            <div class="card-text my-3" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Secret Recipe</p>
+                            </div>
+                            <div class="card-text my-3" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Buy 1 Get 1 only for Dine in</p>
+                            </div>
+                            <h4 class="price" style="margin-left: 60px; margin-top: 30px;">IDR 40.000</h4>
+                            <button class="btn btn-warning rounded-pill px-4" style="margin-left: 60px; margin-top: 10px;">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile version -->
+        <div class="container mt-card d-lg-none">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col text-start ms-5 card-transition-1 hidden">
+                    <div class="card" style="height: 580px; width: 300px;">
+                        <img src="img/homepage/card1.png" class="card-img-top" alt="card" style="margin-top: -90px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="margin-top: -100px; margin-left: 60px;">Hazelnut Latte</h5>
+                            <div class="card-text pt-5" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">HazelnutSyrup</p>
+                            </div>
+                            <div class="card-text my-3" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Wanilla Whipped Cream</p>
+                            </div>
+                            <div class="card-text" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Ice / Hot</p>
+                            </div>
+                            <div class="card-text my-3" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Sliced Banana on Top</p>
+                            </div>
+                            <h4 class="price" style="margin-left: 60px; margin-top: 105px;">IDR 25.000</h4>
+                            <button class="btn btn-warning rounded-pill px-4" style="margin-left: 60px; margin-top: 10px;">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-start ms-5 card-transition-2 hidden" style="margin-top: 8rem;">
+                    <div class="card" style="height: 580px; width: 300px;">
+                        <img src="img/homepage/card2.png" class="card-img-top" alt="card" style="margin-top: -90px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="margin-top: -100px; margin-left: 60px;">Pinky Promise</h5>
+                            <div class="card-text pt-5" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">1 Shot of Coffee</p>
+                            </div>
+                            <div class="card-text my-3" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Vanilla Whipped Cream</p>
+                            </div>
+                            <div class="card-text" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Chocolate Biscuits</p>
+                            </div>
+                            <div class="card-text my-3" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Strawberry Syrup</p>
+                            </div>
+                            <div class="card-text my-3" style="margin-left: 40px;">
+                                <img src="img/homepage/checkcard.svg" alt="">
+                                <p class="d-inline ps-2 typo-3-s2">Sliced strawberry on Top</p>
+                            </div>
+                            <h4 class="price" style="margin-left: 60px; margin-top: 70px;">IDR 30.000</h4>
+                            <button class="btn btn-warning rounded-pill px-4" style="margin-left: 60px; margin-top: 10px;">
+                                Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-start ms-5 card-transition-3 hidden" style="margin-top: 8rem;">
                     <div class="card" style="height: 580px; width: 300px;">
                         <img src="img/homepage/card3.png" class="card-img-top" alt="card" style="margin-top: -90px;">
                         <div class="card-body">
@@ -264,7 +367,7 @@
     </section>
 
     <!-- Section-4 : Visit our store.., Map -->
-    <section class="section-4 d-lg-block d-none">
+    <section class="section-4 d-lg-block d-none hidden">
         <div class="container mt-5">
             <div class="container">
                 <div class="row text-center">
@@ -279,7 +382,7 @@
     </section>
 
     <!-- Section-5 : Our Partner -->
-    <section class="section-5">
+    <section class="section-5 hidden">
         <div class="container d-lg-block d-none">
             <div class="row text-center">
                 <div class="col">
@@ -296,7 +399,7 @@
         </div>
 
         <!-- Testimonial : Sliding Carousel Start -->
-        <div class="testimonials">
+        <div class="testimonials hidden">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -476,8 +579,10 @@
     </footer>
     <!-- Footer End -->
 
+    <img id="scrollTop" src="img/up.svg" alt="up">
+
         <!-- info panel footer start -->
-        <div class="container d-lg-block d-none">
+        <div class="container d-lg-block d-none hidden">
             <div class="row info-panel-footer">
                 <div class="col">
                     <div class="container-fluid">
@@ -498,6 +603,7 @@
         </div>
         <!-- info panel footer end -->
 
+
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script>
             const switchMode = document.getElementById("switchMode")
@@ -509,6 +615,26 @@
                     switchMode.src = "img/moon.png";
                 }
             }
+
+            // Scroll Animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    console.log(entry)
+                    if (entry.isIntersecting){
+                        entry.target.classList.add("show")
+                    } else {
+                        entry.target.classList.remove("show")
+                    }
+                })
+            })
+            const hiddenElements = document.querySelectorAll(".hidden")
+            hiddenElements.forEach((el) => observer.observe(el))
+
+            // Scroll top
+            const scrollTop = document.getElementById("scrollTop")
+            scrollTop.addEventListener("click", function(){
+                window.scrollTo(0, 0);
+            })
         </script>
 </body>
 </html>
