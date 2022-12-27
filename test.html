@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- backup local storage -->
+    <!-- <script>
+        // Collect data from local storage (from signup page) and input into register page
+        document.getElementById("email").innerHTML = localStorage.getItem("emailLocal");
+        // set value bawaan phone number
+        let mobileNumberLocal = localStorage.getItem("mobileNumberLocal")
+        let mobileNumber = document.getElementById("mobileNumber")
+        mobileNumber.value = mobileNumberLocal
+
+        // adding element webpage on click
+        // 1. Create div and add it to webpage  
+        let div = document.createElement("div");
+        div.classList.add("row")
+        div.classList.add("card-container")
+
+        let containerDiv = document.querySelector(".container")
+        containerDiv.appendChild(div)
+
+        // 2. add event listener on submit button
+        let submitBtn = document.getElementById("submit-btn");
+        submitBtn.addEventListener("click", displayDetail);
+
+        // 3. create displayDetail function
+        function displayDetail(event) {
+            event.preventDefault()
+
+            // 4. collecting the form data and save to local storage
+            let email = localStorage.getItem("emailLocal")
+            let mobileNumber = document.getElementById("mobileNumber").value
+            let firstName = document.getElementById("firstName").value
+            let lastName = document.getElementById("lastName").value
+            let address = document.getElementById("address").value
+            let birthDate = document.getElementById("birthDate").value
+            let gender = document.querySelector("input[name='gender']:checked").value
+            let fullName = `${firstName} ${lastName}`
+            // save data to local storage
+            localStorage.setItem("firstNameLocal", firstName)
+            localStorage.setItem("lastNameLocal", lastName)
+            localStorage.setItem("addressLocal", address)
+            localStorage.setItem("birthDateLocal", birthDate)
+            localStorage.setItem("genderLocal", gender)
+            localStorage.setItem("fullNameLocal", fullName)
+            localStorage.setItem("mobileNumberLocal", mobileNumber)
+
+            let source = gender === "male" ? "./img/register/man.png" : "./img/register/woman.png"
+            let html = `
+                        <div class="row card-container" style="margin-top: 1.7rem;">
+                        <div class="col-2"></div>
+                        <div class="col">
+                            <div class="card mb-3 text-dark rounded-4" style="width: 26.5rem;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="./img/register/man.png" class="img-fluid rounded-start m-1 ms-4 w-75" alt="ava">
+                                        <p class="card-text" style="margin-top: -0.2rem; margin-left: 2.7rem;">28/07/99</p>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="card-body ms-1">
+                                            <h5 class="card-title"> ${fullName} </h5>
+                                            <p class="card-text"> ${email} </p>
+                                            <p class="card-text" style="margin-top: -1rem;"> ${mobileNumber} </p>
+                                            <p class="card-text" style="margin-top: -1rem;"> ${address} </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button id="remove-btn" class="btn"><b style="color: red;">X</b></button>
+                                        <div class="col-12 text-center" style="margin-top: 4.5rem; margin-left: -3rem;">
+                                            <button type="submit" id="confirm-btn" onclick="passValues()" class="btn btn-success">Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>`
+
+            // 5. add the content to the div
+            div.insertAdjacentHTML("beforeend", html)
+
+            // Deleting the element with X button
+            let btn = document.querySelector("#remove-btn")
+                .addEventListener("click", function () {
+                    let warning = confirm("Are you sure want to delete this?")
+                    let removeEl = this.parentNode.parentNode.parentNode.parentNode.parentNode
+                    if (warning) {
+                        div.removeChild(removeEl)
+                    }
+                })
+
+            // confirm data and send it to profile page
+            const confirmBtn = document.getElementById("confirm-btn");
+            confirmBtn.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                window.location.href = "profile.html"
+            })
+        }
+
+    </script> -->
+
+    <!-- hasil dari mas tova -->
+    <!-- <script>
+        const email = data.email
+        const mobileNumber = data.mobileNumber
+
+        function displayDetail(event) {
+                event.preventDefault()
+
+
+                let source = gender === "male" ? "./img/register/man.png" : "./img/register/woman.png"
+                let html = `
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col">
+                        <div class="card mb-3 text-dark rounded-4" style="width: 26.5rem;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="${source}" class="img-fluid rounded-start m-1 ms-4 w-75" alt="ava">
+                                    <p class="card-text" style="margin-top: -0.2rem; margin-left: 2.7rem;">${birthDate}</p>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="card-body ms-1">
+                                        <h5 class="card-title">${fullName}</h5>
+                                        <p class="card-text">${email}</p>
+                                        <p class="card-text" style="margin-top: -1rem;">${mobileNumber}</p>
+                                        <p class="card-text" style="margin-top: -1rem;">${address}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <button id="remove-btn" class="btn"><b style="color: red;">X</b></button>
+                                    <button type="submit" id="confirm-btn" onclick="passValues()" class="btn btn-success rounded-3" style="margin-top: 4.1rem; margin-left: -3rem;">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>`
+
+                // 5. add the content to the div
+                div.insertAdjacentHTML("beforeend", html)
+
+                // Deleting the element with X button
+                let btn = document.querySelector("#remove-btn")
+                    .addEventListener("click", function () {
+                        let warning = confirm("Are you sure want to delete this?")
+                        let removeEl = this.parentNode.parentNode.parentNode.parentNode.parentNode
+                        if (warning) {
+                            div.removeChild(removeEl)
+                        }
+                    })
+
+                // confirm data and send it to profile page
+                const confirmBtn = document.getElementById("confirm-btn");
+                confirmBtn.addEventListener("click", function (event) {
+                    event.preventDefault();
+
+                    // tambahkan fetch method PUT
+
+                    window.location.href = "profile.html"
+                })
+            }
+
+        const user = localStorage.getItem("id")
+        // document.getElementById("mobileNumber").value = 099
+        // window.onloadstart = function (){
+            fetch(`https://639fe7117aaf11ceb8a2b9a7.mockapi.io/yannncoffeeusers/${user}`, {
+                        method: 'GET',
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data)
+                            document.getElementById("firstName")
+                            document.getElementById("lastName")
+                            document.getElementById("mobileNumber").value = data.mobileNumber
+                            
+                            
+                            // const mobileNumber = document.getElementById("mobileNumber")
+                            // mobileNumber.innerHTML = 
+
+                            // let mobileNumber = document.getElementById("mobileNumber")
+                            // mobileNumber.value = data.mobileNumber
+    
+                        })
+                        .catch(error => error)
+        // }
+    </script> -->
+
+    <!-- Hasil gabungan local storage dgn api -->
+    <script>
+        const user = localStorage.getItem("id")
+
+        fetch(`https://639fe7117aaf11ceb8a2b9a7.mockapi.io/yannncoffeeusers/${user}`, {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                // show email and mobileNumber data to html from signup page
+                document.getElementById("email-title").innerHTML = data.email
+                document.getElementById("mobileNumber").value = data.mobileNumber
+                let email = data.email
+
+                // ADD AND REMOVE ELEMENT ADD
+                // adding element webpage on click
+                // 1. Create div and add it to webpage  
+                let div = document.createElement("div");
+                div.classList.add("row")
+                div.classList.add("card-container")
+
+                let containerDiv = document.querySelector(".container")
+                containerDiv.appendChild(div)
+
+                // 2. add event listener on submit button
+                let submitBtn = document.getElementById("submit-btn");
+                submitBtn.addEventListener("click", displayDetail);
+
+                // 3. Create displayDetail function
+                function displayDetail(event) {
+                    event.preventDefault()
+
+                    // collecting the form data
+                    const formElement = document.querySelector("form[name=registerForm]")
+                    const formData = new FormData(formElement)
+                    const data = new URLSearchParams(formData)
+
+                    let firstname = formData.get("firstName")
+                    let lastName = formData.get("lastName")
+                    let fullName = `${firstname} ${lastName}`
+                    let address = formData.get("address")
+                    let mobileNumber = formData.get("mobileNumber")
+                    let birthDate = formData.get("birthDate")
+                    let gender = formData.get("gender")
+
+                    let source = gender === "male" ? "./img/register/man.png" : "./img/register/woman.png"
+                    let html = `
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col">
+                                <div class="card mb-3 text-dark rounded-4" style="width: 26.5rem;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="${source}" class="img-fluid rounded-start m-1 ms-4 w-75" alt="ava">
+                                            <p class="card-text" style="margin-top: -0.2rem; margin-left: 2.7rem;">${birthDate}</p>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="card-body ms-1">
+                                                <h5 class="card-title">${fullName}</h5>
+                                                <p class="card-text">${email}</p>
+                                                <p class="card-text" style="margin-top: -1rem;">${mobileNumber}</p>
+                                                <p class="card-text" style="margin-top: -1rem;">${address}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button id="remove-btn" class="btn"><b style="color: red;">X</b></button>
+                                            <button type="submit" id="confirm-btn" onclick="passValues()" class="btn btn-success rounded-3" style="margin-top: 4.1rem; margin-left: -3rem;">Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>`
+
+                    // 5. add the content to the div
+                    div.insertAdjacentHTML("beforeend", html)
+
+                    // Deleting the element with X button
+                    let btn = document.querySelector("#remove-btn")
+                        .addEventListener("click", function () {
+                            let warning = confirm("Are you sure want to delete this?")
+                            let removeEl = this.parentNode.parentNode.parentNode.parentNode.parentNode
+                            if (warning) {
+                                div.removeChild(removeEl)
+                            }
+                        })
+
+                    // confirm data and send it to profile page
+                    const confirmBtn = document.getElementById("confirm-btn");
+                    confirmBtn.addEventListener("click", function (event) {
+                        event.preventDefault();
+
+                        // tambahkan fetch method PUT
+
+                        window.location.href = "profile.html"
+                    })
+                }
+                // ADD AND REMOVE ELEMENT END
+
+            })
+            .catch(error => error)
+
+
+
+    </script>
+</body>
+</html>

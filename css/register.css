@@ -23,6 +23,9 @@ body {
 .card-container {
     margin-top: 4.5rem;
 }
+img {
+    cursor: pointer;
+}
 /* Main end */
 
 /* Footer Start */

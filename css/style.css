@@ -8,9 +8,11 @@
 }
 body {
     font-family: 'Rubik', sans-serif;
-    overflow-x: hidden;
     background: var(--basic-color);
     scroll-behavior: smooth;
+}
+html {
+    overflow-x: hidden;
 }
 
 /* SCROLL ANIMATION */
@@ -18,7 +20,7 @@ body {
     opacity: 0;
     filter: blur(5px);
     transform: translateY(15%);
-    transition: all 1.3s;
+    transition: all 1.1s;
 }
 .show {
     opacity: 1;

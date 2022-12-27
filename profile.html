@@ -256,25 +256,44 @@
     <!-- Footer End -->
 
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
     <script>
-        // Collect data from local storage (from register page)
-            // Left form
-            document.getElementById("fullNameLeft").innerHTML = localStorage.getItem("fullNameLocal")
-            document.getElementById("emailLeft").innerHTML = localStorage.getItem("emailLocal");
-            // right form
-            document.getElementById("emailRight").innerHTML = localStorage.getItem("emailLocal");
-            document.getElementById("mobileNumber").innerHTML = localStorage.getItem("mobileNumberLocal");
-            document.getElementById("firstName").innerHTML = localStorage.getItem("firstNameLocal")
-            document.getElementById("lastName").innerHTML = localStorage.getItem("lastNameLocal")
-            document.getElementById("fullNameRight").innerHTML = localStorage.getItem("fullNameLocal")
-            document.getElementById("Address").innerHTML = localStorage.getItem("addressLocal")
-            document.getElementById("birthDate").innerHTML = localStorage.getItem("birthDateLocal")
-            
-        // Change avatar dynamically
-        let gender = localStorage.getItem("genderLocal")
-        let avatar = document.getElementById("avatar")
-        let source = gender === "male" ? "./img/register/man.png" : "./img/register/woman.png"
-        avatar.src = source // ini untuk mengganti properti element di html
+        
+        const user = localStorage.getItem("id")
+        fetch(`https://639fe7117aaf11ceb8a2b9a7.mockapi.io/yannncoffeeusers/${user}`, {
+                method: 'GET',
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Collect data from local storage (from register page)
+                    // Left form
+                    document.getElementById("fullNameLeft").innerHTML = `${data.firstName} ${data.lastName}`
+                    document.getElementById("emailLeft").innerHTML = data.email
+                    // right form
+                    document.getElementById("emailRight").innerHTML = data.email
+                    document.getElementById("mobileNumber").innerHTML = data.mobileNumber
+                    document.getElementById("firstName").innerHTML = data.firstName
+                    document.getElementById("lastName").innerHTML = data.lastName
+                    document.getElementById("fullNameRight").innerHTML = `${data.firstName} ${data.lastName}`
+                    document.getElementById("Address").innerHTML = data.address
+                    document.getElementById("birthDate").innerHTML = data.birthDate
+
+                    // Change avatar dynamically
+                    let gender = data.gender
+                    let avatar = document.getElementById("avatar")
+                    let source = gender === "male" ? "./img/register/man.png" : "./img/register/woman.png"
+                    avatar.src = source // ini untuk mengganti properti element di html
+
+                    // Change gender radio button dynamically
+                    if (gender == "male"){
+                        document.getElementById("maleRadio").checked = true
+                    } else {
+                        document.getElementById("femaleRadio").checked = true
+                    }
+
+                })
+                .catch (error => (error))
+
     </script>
 </body>
 

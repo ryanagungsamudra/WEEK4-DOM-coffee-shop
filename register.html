@@ -26,10 +26,15 @@
         <div class="bg-primary text-white hero">
             <!-- content start -->
             <div class="container container-1">
-                <div class="row text-center pt-5 text-dark">
+                <div class="row">
+                    <div class="col text-end">
+                        <img id="reset" src="img/register/reset.png" alt="reset" style="width: 50px; height: 40px; margin-top: 0.5rem;">
+                    </div>
+                </div>
+                <div class="row text-center pt-5 text-dark" style="margin-top: -4rem;">
                     <div class="col">
                         <h2>Hello there!</h2>
-                        <h5 id="email"></h5>
+                        <h5 id="email-title"></h5>
                     </div>
                 </div>
                 <div class="row text-center text-danger pt-3">
@@ -42,27 +47,27 @@
                     <!-- FORM START -->
                     <div class="col-2"></div>
                     <div class="col text-dark">
-                        <form class="row g-3">
+                        <form name="registerForm" class="row g-3">
                             <div class="col-md-6">
                                 <label for="inputFirstName" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="input your first name here">
+                                <input type="text" class="form-control" id="firstName" placeholder="input your first name here" name="firstName">
                             </div>
                             <div class="col-md-6">
                                 <label for="inputLastName" class="form-label">Last name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="input your last name here">
+                                <input type="text" class="form-control" id="lastName" placeholder="input your last name here" name="lastName">
                             </div>
                             <div class="col-12 pt-2">
                                 <label for="inputAddress" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="input your address here">
+                                <input type="text" class="form-control" id="address" placeholder="input your address here" name="address">
                             </div>
                             <div class="col-12 pt-2">
                                 <label for="inputPhoneNumber" class="form-label">Phone Number
                                     :</label>
-                                <input type="number" class="form-control" id="mobileNumber" placeholder="Enter your phone number">
+                                <input type="number" class="form-control" id="mobileNumber" placeholder="Enter your phone number" name="mobileNumber">
                             </div>
                             <div class="col-12 pt-2">
                                 <label for="inputDate" class="form-label">DD/MM/YY</label>
-                                <input type="text" class="form-control" id="birthDate" placeholder="28/07/99">
+                                <input type="text" class="form-control" id="birthDate" placeholder="28/07/99" name="birthDate">
                             </div>
                             <div class="col-12 pt-2">
                                 <label for="gender" class="pe-2">Gender :</label>
@@ -93,7 +98,7 @@
                 </div>
 
                 <!-- New element adding in JS -->
-                <!-- <div class="row card-container">
+                <!-- <div class="row card-container" style="margin-top: 6.5rem;">
                     <div class="col-2"></div>
                     <div class="col">
                         <div class="card mb-3 text-dark rounded-4" style="width: 26.5rem;">
@@ -112,14 +117,14 @@
                                 </div>
                                 <div class="col-md-1">
                                     <button id="remove-btn" class="btn"><b style="color: red;">X</b></button>
+                                    <div class="col-12 text-center" style="margin-top: 4.5rem; margin-left: -3rem;">
+                                        <button type="submit" id="confirm-btn" onclick="passValues()" class="btn btn-success">Confirm</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-2"></div>
-                    <div class="col-12 text-center" style="margin-top: -1.3rem;">
-                        <button type="submit" id="confirm-btn" onclick="passValues()" class="btn btn-warning">Confirm</button>
-                    </div>
                 </div> -->
             
             </div>
@@ -204,100 +209,141 @@
     <!-- Footer End -->
 
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
     <script>
-        // Collect data from local storage (from signup page) and input into register page
-        document.getElementById("email").innerHTML = localStorage.getItem("emailLocal");
-            // set value bawaan phone number
-            let mobileNumberLocal = localStorage.getItem("mobileNumberLocal")
-            let mobileNumber = document.getElementById("mobileNumber")
-            mobileNumber.value = mobileNumberLocal
 
-        // adding element webpage on click
-        // 1. Create div and add it to webpage  
-        let div = document.createElement("div");
-        div.classList.add("row")
-        div.classList.add("card-container")
+        const user = localStorage.getItem("id")
 
-        let containerDiv = document.querySelector(".container")
-        containerDiv.appendChild(div)
+        // FETCH API : GET & PUT
+        fetch(`https://639fe7117aaf11ceb8a2b9a7.mockapi.io/yannncoffeeusers/${user}`, {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then(data => {
+                // show email and mobileNumber data to html from signup page
+                document.getElementById("email-title").innerHTML = data.email
+                document.getElementById("mobileNumber").value = data.mobileNumber
+                let email = data.email
 
-        // 2. add event listener on submit button
-        let submitBtn = document.getElementById("submit-btn");
-        submitBtn.addEventListener("click", displayDetail);
+            // ADD AND REMOVE ELEMENT START
+                // 1. Create div and add it to webpage  
+                let div = document.createElement("div");
+                div.classList.add("row")
+                div.classList.add("card-container")
 
-        // 3. create displayDetail function
-        function displayDetail (event){
-            event.preventDefault()
+                let containerDiv = document.querySelector(".container")
+                containerDiv.appendChild(div)
 
-            // 4. collecting the form data and save to local storage
-            let email = localStorage.getItem("emailLocal")
-            let mobileNumber = document.getElementById("mobileNumber").value
-            let firstName = document.getElementById("firstName").value
-            let lastName = document.getElementById("lastName").value
-            let address = document.getElementById("address").value
-            let birthDate = document.getElementById("birthDate").value
-            let gender = document.querySelector("input[name='gender']:checked").value
-            let fullName = `${firstName} ${lastName}`
-                // save data to local storage
-                localStorage.setItem("firstNameLocal", firstName)
-                localStorage.setItem("lastNameLocal", lastName)
-                localStorage.setItem("addressLocal", address)
-                localStorage.setItem("birthDateLocal", birthDate)
-                localStorage.setItem("genderLocal", gender)
-                localStorage.setItem("fullNameLocal", fullName)
-                localStorage.setItem("mobileNumberLocal", mobileNumber)
-                
-            let source = gender === "male" ? "./img/register/man.png" : "./img/register/woman.png"
-            let html = `
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col">
-                        <div class="card mb-3 text-dark rounded-4" style="width: 26.5rem;">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="${source}" class="img-fluid rounded-start m-1 ms-4 w-75" alt="ava">
-                                    <p class="card-text" style="margin-top: -0.2rem; margin-left: 2.7rem;">${birthDate}</p>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="card-body ms-1">
-                                        <h5 class="card-title">${fullName}</h5>
-                                        <p class="card-text">${email}</p>
-                                        <p class="card-text" style="margin-top: -1rem;">${mobileNumber}</p>
-                                        <p class="card-text" style="margin-top: -1rem;">${address}</p>
+                // 2. add event listener on submit button
+                let submitBtn = document.getElementById("submit-btn");
+                submitBtn.addEventListener("click", displayDetail);
+
+                // 3. Create displayDetail function
+                function displayDetail(event) {
+                    event.preventDefault()
+                    
+                    // collecting the form data
+                    const formElement = document.querySelector("form[name=registerForm]")
+                    const formData = new FormData(formElement)
+                    const data = new URLSearchParams(formData)
+                    let firstname = formData.get("firstName")
+                    let lastName = formData.get("lastName")
+                    let fullName = `${firstname} ${lastName}`
+                    let address = formData.get("address")
+                    let mobileNumber = formData.get("mobileNumber")
+                    let birthDate = formData.get("birthDate")
+                    let gender = formData.get("gender")
+                    let source = gender === "male" ? "./img/register/man.png" : "./img/register/woman.png"
+                    let html = `
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col">
+                            <div class="card mb-3 text-dark rounded-4" style="width: 26.5rem;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="${source}" class="img-fluid rounded-start m-1 ms-4 w-75" alt="ava">
+                                        <p class="card-text" style="margin-top: -0.2rem; margin-left: 2.7rem;">${birthDate}</p>
                                     </div>
-                                </div>
-                                <div class="col-md-1">
-                                    <button id="remove-btn" class="btn"><b style="color: red;">X</b></button>
-                                    <button type="submit" id="confirm-btn" onclick="passValues()" class="btn btn-success rounded-3" style="margin-top: 4.1rem; margin-left: -3rem;">Confirm</button>
+                                    <div class="col-md-7">
+                                        <div class="card-body ms-1">
+                                            <h5 class="card-title">${fullName}</h5>
+                                            <p class="card-text">${email}</p>
+                                            <p class="card-text" style="margin-top: -1rem;">${mobileNumber}</p>
+                                            <p class="card-text" style="margin-top: -1rem;">${address}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button id="remove-btn" class="btn"><b style="color: red;">X</b></button>
+                                        <button type="submit" id="confirm-btn" onclick="passValues()" class="btn btn-success rounded-3" style="margin-top: 4.1rem; margin-left: -3rem;">Confirm</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-2"></div>
-                </div>`
-            
-            // 5. add the content to the div
-            div.insertAdjacentHTML("beforeend", html)
+                        <div class="col-2"></div>
+                    </div>`
+                    // add the content to the div
+                    div.insertAdjacentHTML("beforeend", html)
 
-            // Deleting the element with X button
-            let btn = document.querySelector("#remove-btn")
-            .addEventListener("click", function(){
-                let warning = confirm("Are you sure want to delete this?")
-                let removeEl = this.parentNode.parentNode.parentNode.parentNode.parentNode
-                if (warning){
-                    div.removeChild(removeEl)
+                    // FETCH : PUT
+                    fetch(`https://639fe7117aaf11ceb8a2b9a7.mockapi.io/yannncoffeeusers/${user}`, {
+                        method: 'PUT',
+                        body: data
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data)
+                            localStorage.setItem("id", data.id);
+
+                        })
+                        .catch(error => error)
+
+                    // Deleting the element with X button
+                    let btn = document.querySelector("#remove-btn")
+                        btn.addEventListener("click", function () {
+                            let warning = confirm("Are you sure want to delete this?")
+                            let removeEl = this.parentNode.parentNode.parentNode.parentNode.parentNode
+                            if (warning) {
+                                div.removeChild(removeEl)
+                            }
+                        })
+
+                    // confirm data and send it to profile page
+                    const confirmBtn = document.getElementById("confirm-btn");
+                    confirmBtn.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        window.location.href = "profile.html"
+                    })
                 }
-            })
+            // ADD AND REMOVE ELEMENT END
 
-            // confirm data and send it to profile page
-            const confirmBtn = document.getElementById("confirm-btn");
-            confirmBtn.addEventListener("click", function(event){
-                event.preventDefault();
-
-                window.location.href = "profile.html"
             })
-        }
+            .catch(error => error)
+
+        // FETCH API : DELETE (delete data from API if reset image clicked)
+        const reset = document.getElementById("reset")
+        reset.addEventListener("click", function () {
+            let warning = confirm("Your data will be deleted and you will be redirected to the sign up page, are you sure?")
+            if(warning){
+                const formElement = document.querySelector("form[name=registerForm]")
+                const formData = new FormData(formElement)
+                const data = new URLSearchParams(formData)
+    
+                fetch(`https://639fe7117aaf11ceb8a2b9a7.mockapi.io/yannncoffeeusers/${user}`, {
+                    method: 'DELETE',
+                    body: data
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.clear();
+                        window.location.href = "signup.html"
+                    })
+                    .catch(error => error)
+            }
+        })
 
     </script>
+
+    
 </body>
 </html>
